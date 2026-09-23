@@ -128,12 +128,14 @@
     display: flex !important;
     flex-direction: column;
     justify-content: space-around;
-    width: 32px;
-    height: 24px;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 10px 6px !important;
     z-index: calc(var(--z-header, 1000) + 10);
   }
 
@@ -685,6 +687,11 @@
   .footer__links {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 2.5rem !important;
+  }
+
+  /* フッター下部の余白: フローティングボタン（チャット・予約）と重ならないようにする */
+  .footer {
+    padding-bottom: calc(14rem + var(--safe-area-bottom, 0px)) !important;
   }
 }
 

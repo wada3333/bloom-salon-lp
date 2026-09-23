@@ -23,7 +23,6 @@
     header: document.getElementById('header'),
     burger: document.getElementById('burger'),
     mobileMenu: document.getElementById('mobileMenu'),
-    themeToggle: document.getElementById('themeToggle'),
     backToTop: document.getElementById('backToTop'),
     floatingCta: document.getElementById('floatingCta'),
     floatingLine: document.getElementById('floatingLine'),
@@ -98,17 +97,23 @@
     if (!burger || !menu) return;
 
     function toggleMenu() {
-      const isOpen = burger.classList.toggle('active');
+      const isOpen = burger.classList.toggle('is-active');
       burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menu.classList.toggle('active');
+      menu.classList.toggle('is-active');
       document.body.classList.toggle('menu-open', isOpen);
+      if (window.bloomLenis) {
+        isOpen ? window.bloomLenis.stop() : window.bloomLenis.start();
+      }
     }
 
     function closeMenu() {
-      burger.classList.remove('active');
+      burger.classList.remove('is-active');
       burger.setAttribute('aria-expanded', 'false');
-      menu.classList.remove('active');
+      menu.classList.remove('is-active');
       document.body.classList.remove('menu-open');
+      if (window.bloomLenis) {
+        window.bloomLenis.start();
+      }
     }
 
     burger.addEventListener('click', toggleMenu);
@@ -120,30 +125,9 @@
 
     // Escapeキーでメニューを閉じる
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('active')) {
+      if (e.key === 'Escape' && menu.classList.contains('is-active')) {
         closeMenu();
       }
-    });
-  }
-
-  // ===========================
-  // ダークモード切替
-  // ===========================
-  function initThemeToggle() {
-    const toggle = els.themeToggle;
-    if (!toggle) return;
-
-    // ローカルストレージからテーマを取得
-    const savedTheme = localStorage.getItem('bloom-theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    }
-
-    toggle.addEventListener('click', function () {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('bloom-theme', newTheme);
     });
   }
 
@@ -368,7 +352,6 @@
     // 各モジュールの初期化
     initUnifiedScroll();
     initMobileMenu();
-    initThemeToggle();
     initSmoothScroll();
     initBackToTop();
     initFloatingElements();

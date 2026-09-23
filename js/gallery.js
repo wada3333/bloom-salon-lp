@@ -304,8 +304,6 @@
 
     var currentSlide = 0;
     var totalSlides = cards.length;
-    var autoPlayInterval = null;
-    var autoPlayDelay = 5000; // 5秒間隔
 
     // 表示中のカード数を取得（768px未満: 1枚, 768px〜1023px: 2枚, 1024px以上: 3枚）
     function getVisibleCount() {
@@ -328,7 +326,6 @@
         dot.setAttribute('data-index', i);
         dot.addEventListener('click', function () {
           goToSlide(parseInt(this.getAttribute('data-index'), 10));
-          startAutoPlay();
         });
         dotsContainer.appendChild(dot);
       }
@@ -401,31 +398,16 @@
       }
     }
 
-    // 自動再生
-    function startAutoPlay() {
-      stopAutoPlay();
-      autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
-    }
-
-    function stopAutoPlay() {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = null;
-      }
-    }
-
     // ボタンイベント
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
         prevSlide();
-        startAutoPlay();
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', function () {
         nextSlide();
-        startAutoPlay();
       });
     }
 
@@ -435,7 +417,6 @@
 
     track.addEventListener('touchstart', function (e) {
       touchStartX = e.changedTouches[0].screenX;
-      stopAutoPlay();
     }, { passive: true });
 
     track.addEventListener('touchend', function (e) {
@@ -449,12 +430,7 @@
           prevSlide();
         }
       }
-      startAutoPlay();
     }, { passive: true });
-
-    // ホバー時に自動再生を停止
-    slider.addEventListener('mouseenter', stopAutoPlay);
-    slider.addEventListener('mouseleave', startAutoPlay);
 
     // リサイズ時にドットとスライド位置を再計算
     window.addEventListener('resize', function () {
@@ -469,7 +445,6 @@
     // 初期化実行
     updateDots();
     goToSlide(0);
-    startAutoPlay();
   }
 
   // ===========================
