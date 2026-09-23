@@ -1,0 +1,1094 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   美容室BLOOM LP - レスポンシブスタイルシート (responsive.css)
+   
+   【構成】
+   1. セーフエリア基盤設定 (Safe Area Insets)
+   2. デスクトップ標準・ワイド (min-width: 1024px)
+   3. タブレット (max-width: 1024px)
+   4. スマホ標準 (max-width: 768px)
+   5. スマホ小 (max-width: 480px)
+   6. 横向きランドスケープ対応 (Landscape Mode: max-height: 480px)
+   7. タッチデバイス・ホバー無効化 (@media (hover: none))
+   ========================================================================== */
+
+/* ==========================================================================
+   1. セーフエリア基盤設定 (iPhone等のノッチ / ホームバー対応)
+   ========================================================================== */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+}
+
+/* ==========================================================================
+   2. デスクトップ標準・ワイド (min-width: 1024px)
+   PC・大画面ディスプレイ向けレイアウト
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1360px;
+    padding: 0 40px;
+  }
+
+  /* ヒーローセクション */
+  .hero__title {
+    font-size: clamp(4.2rem, 5.5vw, 6.4rem);
+    letter-spacing: 0.12em;
+    line-height: 1.35;
+  }
+
+  .hero__description {
+    font-size: 1.8rem;
+    line-height: 2.2;
+  }
+
+  /* コンセプト */
+  .concept__grid {
+    gap: 8rem;
+  }
+
+  .concept__image--main img {
+    max-height: 600px;
+    object-fit: cover;
+  }
+
+  /* スタッフグリッド (5列均等配置) */
+  .staff__grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+  }
+
+  /* ギャラリーグリッド (4列グリッド) */
+  .gallery__grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 320px;
+    gap: 2.5rem;
+  }
+
+  /* Instagramグリッド (6列表示) */
+  .instagram__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  /* 予約フォームコンテナ */
+  .booking__form-container {
+    max-width: 1000px;
+    padding: 5rem 6rem;
+  }
+
+  /* PCヘッダーナビ・予約CTAの表示 */
+  .header__nav {
+    display: block !important;
+  }
+
+  .header__cta {
+    display: inline-flex !important;
+  }
+
+  /* ハンバーガーボタン非表示 */
+  .header__burger,
+  .hamburger {
+    display: none !important;
+  }
+
+  /* モバイルメニューは非表示 */
+  .mobile-menu {
+    display: none !important;
+  }
+
+}
+
+/* ==========================================================================
+   4. タブレット (max-width: 1024px)
+   iPadやタブレット端末向けのレイアウト最適化
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* コンテナ余白 */
+  .container {
+    padding: 0 30px;
+    max-width: 100%;
+  }
+
+  /* ヘッダーナビ非表示 → ハンバーガーメニュー表示 */
+  .header__nav {
+    display: none !important;
+  }
+
+  /* ヘッダー内CTAボタン非表示（モバイルメニュー内へ集約） */
+  .header__cta {
+    display: none !important;
+  }
+
+  /* ハンバーガーメニューボタン表示 */
+  .header__burger,
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: calc(var(--z-header, 1000) + 10);
+  }
+
+  .header__burger span,
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  /* ハンバーガーアクティブ状態（クロス変形） */
+  .header__burger.is-active span:nth-child(1),
+  .hamburger.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .header__burger.is-active span:nth-child(2),
+  .hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .header__burger.is-active span:nth-child(3),
+  .hamburger.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* モバイルメニュー本体 */
+  .mobile-menu {
+    display: flex !important;
+  }
+
+  /* ヒーロータイトル縮小 */
+  .hero__title {
+    font-size: clamp(3.6rem, 7vw, 5.5rem);
+    letter-spacing: 0.12em;
+    line-height: 1.25;
+  }
+
+  .hero__subtitle {
+    font-size: 1.4rem;
+    letter-spacing: 0.25em;
+  }
+
+  /* コンセプトグリッド: 1カラム化 */
+  .concept__grid,
+  .concept__inner {
+    grid-template-columns: 1fr !important;
+    gap: 5rem;
+  }
+
+  .concept__images {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* スタッフグリッド: 3列 */
+  .staff__grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2.5rem;
+  }
+
+  /* ギャラリーグリッド: 2列 */
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 300px;
+    gap: 2rem;
+  }
+
+  /* メニュータブ: スクロール可能に */
+  .menu__tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important;
+    gap: 1.2rem !important;
+    padding: 0.5rem 0.5rem 1.5rem !important;
+    scrollbar-width: none; /* Firefoxスクロールバー非表示 */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .menu__tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .menu__tab,
+  .tab-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 1.2rem 2.2rem !important;
+    font-size: 1.4rem !important;
+  }
+
+  /* 予約日時選択: 1カラム */
+  .booking__date-time {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 4rem !important;
+  }
+
+  /* 予約スタッフ・メニュー選択: 1カラム */
+  .booking__staff-menu {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 4rem !important;
+  }
+
+  /* サロンアクセス情報: 1カラム */
+  .access__grid,
+  .access__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 4rem !important;
+  }
+
+  .access__map {
+    height: 380px !important;
+  }
+
+  /* Instagramグリッド: 3列 */
+  .instagram__grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* フッタートップ: 1カラム */
+  .footer__top,
+  .footer__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 4.5rem !important;
+  }
+
+  .footer__links {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 3rem !important;
+  }
+}
+
+/* ==========================================================================
+   5. スマホ大・標準 (max-width: 768px)
+   一般的なスマートフォン全般への最適化
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* カスタムカーソル完全非表示 */
+  body,
+  body * {
+    cursor: auto !important;
+  }
+
+  .cursor,
+  .cursor-dot,
+  .cursor-ring,
+  #cursor {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* セクション余白: padding 60px 0 */
+  .section {
+    padding: 60px 0 !important;
+  }
+
+  /* コンテナ左右パディング */
+  .container {
+    padding: 0 20px !important;
+    width: 100% !important;
+  }
+
+  /* ヘッダーサイズ調整 */
+  .header {
+    padding: calc(1.4rem + var(--safe-area-top)) calc(2rem + var(--safe-area-right)) 1.4rem calc(2rem + var(--safe-area-left)) !important;
+  }
+
+  .header.is-scrolled {
+    padding: calc(1rem + var(--safe-area-top)) calc(2rem + var(--safe-area-right)) 1rem calc(2rem + var(--safe-area-left)) !important;
+  }
+
+  .header__logo {
+    font-size: 2.2rem;
+  }
+
+  /* セクション見出し: font-size: clamp(1.5rem, 5vw, 2rem) */
+  .section__title {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+  }
+
+  .section__header {
+    margin-bottom: 3.5rem;
+  }
+
+  .section__label {
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6rem;
+  }
+
+  .section__subtitle {
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+
+  /* ヒーローセクション: テキスト左寄せまたは中央配置の最適化 */
+  .hero {
+    height: 100vh !important;
+    height: 100svh !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    padding: calc(7rem + var(--safe-area-top)) 0 calc(6.5rem + var(--safe-area-bottom)) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero__content {
+    text-align: center;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .hero__subtitle {
+    margin-bottom: 1.2rem !important;
+  }
+
+  .hero__title {
+    font-size: clamp(2.8rem, 7.5vw, 3.8rem) !important;
+    margin-bottom: 1.2rem !important;
+    line-height: 1.35;
+  }
+
+  .hero__title-line {
+    display: block;
+  }
+
+  .hero__description {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .hero__cta {
+    margin-top: 0 !important;
+  }
+
+  .hero__scroll-indicator,
+  .hero__scroll {
+    bottom: calc(1.5rem + var(--safe-area-bottom)) !important;
+  }
+
+  /* コンセプト詳細調整 */
+  .concept__text h2,
+  .concept__text h3 {
+    font-size: clamp(2rem, 5.5vw, 2.6rem);
+  }
+
+  .concept__description {
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+
+  /* スタッフ集合写真: アスペクト比と見出し位置調整 */
+  .staff__group-photo {
+    margin-bottom: 4rem !important;
+  }
+
+  .staff__group-photo img {
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+  }
+
+  .staff__group-overlay {
+    padding: 1.5rem !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%) !important;
+  }
+
+  .staff__group-overlay p {
+    font-size: 1.6rem !important;
+    letter-spacing: 0.12em !important;
+    margin: 0 !important;
+  }
+
+  /* スタッフグリッド: 2列 */
+  .staff__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .staff__card-overlay {
+    opacity: 1 !important;
+    transform: none !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 60%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 1.4rem 1.2rem !important;
+  }
+
+  .staff__card-comment {
+    font-size: 1.15rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.6rem !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .staff__card-social {
+    gap: 0.8rem !important;
+  }
+
+  .staff__card-name {
+    font-size: 1.5rem;
+  }
+
+  .staff__card-role {
+    font-size: 1.1rem;
+  }
+
+  .staff__card-specialty {
+    font-size: 1.1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  /* ギャラリーグリッド: 2列 & tall/wideのspan解除 */
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: auto !important;
+    gap: 1.2rem !important;
+  }
+
+  .gallery__item--tall,
+  .gallery__item--wide,
+  .gallery-item--tall,
+  .gallery-item--wide {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .gallery__item,
+  .gallery-item {
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+  }
+
+  .gallery__item img,
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+  }
+
+  /* ギャラリーアイテムのオーバーレイ情報（スマホで常時左下表示） */
+  .gallery__item-overlay,
+  .gallery-item__overlay {
+    opacity: 1 !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 60%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 1.2rem !important;
+  }
+
+  .gallery__item-overlay h3 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.2rem !important;
+    text-align: left !important;
+  }
+
+  .gallery__item-overlay p {
+    font-size: 1.1rem !important;
+    text-align: left !important;
+  }
+
+  .gallery__item-category {
+    font-size: 1.0rem !important;
+    margin-bottom: 0.2rem !important;
+    text-align: left !important;
+  }
+
+  /* Before/Afterスライダー */
+  .gallery__before-after {
+    margin-top: 4rem;
+  }
+
+  .gallery__ba-slider,
+  .ba-slider {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* 予約スタッフ選択グリッド: 3列 */
+  .booking__staff-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .booking__staff-option {
+    padding: 1rem 0.5rem;
+  }
+
+  .booking__staff-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .booking__staff-option p {
+    font-size: 1.2rem;
+  }
+
+  .booking__staff-role {
+    font-size: 1rem;
+  }
+
+  /* 予約メニューグリッド: 1列 */
+  .booking__menu-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  .booking__menu-card {
+    padding: 1.4rem 1.6rem;
+  }
+
+  /* お客様情報フォーム行: 1カラム */
+  .booking__form-row {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+    gap: 2.4rem !important;
+    margin-bottom: 2.4rem !important;
+  }
+
+
+  /* アクセス内装写真: 1列 */
+  .access__photos {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .access__photo img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .access__map {
+    height: 300px !important;
+  }
+
+  /* Instagramグリッド: 2列 */
+  .instagram__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* フローティングLINEボタン（チャット）: 画面右下（予約ボタンの上）に配置 */
+  .floating-line,
+  .floating-btn--line {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: fixed !important;
+    bottom: calc(7.4rem + var(--safe-area-bottom)) !important;
+    right: calc(1.6rem + var(--safe-area-right)) !important;
+    left: auto !important;
+    width: 48px !important;
+    height: 48px !important;
+    background-color: #06C755 !important;
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 18px rgba(6, 199, 85, 0.45) !important;
+    z-index: 950 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .floating-line svg,
+  .floating-btn--line svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: currentColor !important;
+  }
+
+  /* 予約フローティングボタンのモバイル配置（最下部） */
+  .floating-cta,
+  .floating-btn--booking {
+    display: flex !important;
+    position: fixed !important;
+    bottom: calc(1.6rem + var(--safe-area-bottom)) !important;
+    right: calc(1.6rem + var(--safe-area-right)) !important;
+    left: auto !important;
+    padding: 1.1rem 2.2rem !important;
+    font-size: 1.3rem !important;
+    z-index: 950 !important;
+  }
+
+  /* トップへ戻るボタン位置調整（チャットボタンの上） */
+  .back-to-top,
+  .to-top {
+    bottom: calc(13.2rem + var(--safe-area-bottom)) !important;
+    right: calc(1.6rem + var(--safe-area-right)) !important;
+  }
+
+  /* 予約ステッパーのスマホ調整 */
+  .booking__stepper {
+    margin-bottom: 2.5rem;
+  }
+
+  .booking__step span {
+    font-size: 1.1rem;
+  }
+
+  .booking__step-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+  }
+
+  .booking__form-container {
+    padding: 2.5rem 1.6rem calc(8.5rem + var(--safe-area-bottom)) !important;
+  }
+
+  /* カレンダーのスマホ調整 */
+  .booking__calendar-grid,
+  .calendar-grid {
+    gap: 4px !important;
+  }
+
+  .booking__calendar-weekdays span {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+  }
+
+  .booking__time-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.8rem !important;
+  }
+
+  /* フッターリンク */
+  .footer__links {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   6. スマホ小 (max-width: 480px)
+   小型画面端末（iPhone SE, 小画面Android等）の最適化
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* コンテナ左右パディングの微調整 */
+  .container {
+    padding: 0 16px !important;
+  }
+
+  /* スタッフグリッド: 1列 */
+  .staff__grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* 予約スタッフグリッド: 2列 */
+  .booking__staff-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8rem !important;
+  }
+
+  /* コンセプトキーワード: 1列 */
+  .concept__keywords {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .concept__keyword,
+  .keyword-card {
+    padding: 2rem 1.5rem !important;
+  }
+
+  /* ギャラリーグリッド: 2列表示を維持 */
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* さらなるフォントサイズ縮小 */
+  .hero__title {
+    font-size: clamp(2.4rem, 7.5vw, 3.2rem) !important;
+    letter-spacing: 0.1em;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem !important;
+    letter-spacing: 0.15em;
+  }
+
+  .hero__description {
+    font-size: 1.3rem !important;
+    line-height: 1.75;
+  }
+
+  .section__title {
+    font-size: clamp(1.4rem, 5.5vw, 1.8rem) !important;
+  }
+
+  .section__label {
+    font-size: 1.1rem !important;
+  }
+
+  .btn {
+    padding: 1rem 2rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .btn--large {
+    padding: 1.3rem 2.5rem !important;
+    font-size: 1.4rem !important;
+    width: 100% !important;
+  }
+
+  /* 予約ナビゲーションボタン */
+  .booking__nav {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .booking__nav .btn {
+    width: 100%;
+  }
+
+  /* 予約確認カード */
+  .booking__confirm-card {
+    padding: 1.8rem 1.4rem !important;
+  }
+
+  .booking__confirm-row {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.3rem;
+  }
+
+  .booking__confirm-value {
+    text-align: left !important;
+  }
+
+  /* サロンアクセス詳細リスト */
+  .access__list div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .access__list dt {
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+  }
+
+  .access__list dd {
+    margin-left: 0;
+    font-size: 1.3rem;
+  }
+
+  /* フッターリンク: 1カラム */
+  .footer__links {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ==========================================================================
+   6. 横向きランドスケープ対応 (Landscape Mode: max-height: 480px)
+   スマホを横持ちにした際のスクロール阻害や重なりを防止
+   ========================================================================== */
+@media (orientation: landscape) and (max-height: 480px) {
+  /* ヒーローセクションの高さをautoにしてコンテンツ見切れを防止 */
+  .hero {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: calc(7rem + var(--safe-area-top)) 0 calc(4rem + var(--safe-area-bottom)) !important;
+  }
+
+  .hero__title {
+    font-size: 2.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero__description {
+    font-size: 1.3rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero__scroll-indicator,
+  .hero__scroll {
+    display: none !important;
+  }
+
+  /* モバイルメニューを縦スクロール可能に */
+  .mobile-menu {
+    justify-content: flex-start !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: calc(6rem + var(--safe-area-top)) calc(2rem + var(--safe-area-right)) calc(3rem + var(--safe-area-bottom)) calc(2rem + var(--safe-area-left)) !important;
+  }
+
+  .mobile-menu__list {
+    margin-bottom: 2rem !important;
+  }
+
+  .mobile-menu__list li {
+    margin-bottom: 1.2rem !important;
+  }
+
+  .mobile-menu__link {
+    font-size: 1.8rem !important;
+  }
+
+  /* ライトボックスモーダルの横向き最適化 */
+  .lightbox__content {
+    max-height: 85vh;
+  }
+
+  .lightbox__image,
+  .lightbox__img {
+    max-height: 70vh !important;
+  }
+
+  /* 予約完了モーダル */
+  .booking__success-inner,
+  .success-card {
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2rem !important;
+  }
+
+  /* フローティングボタンの縮小配置（右下縦並び） */
+  .floating-line,
+  .floating-btn--line {
+    width: 40px !important;
+    height: 40px !important;
+    bottom: calc(5.8rem + var(--safe-area-bottom)) !important;
+    right: calc(1rem + var(--safe-area-right)) !important;
+    left: auto !important;
+  }
+
+  .floating-line svg,
+  .floating-btn--line svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .floating-cta,
+  .floating-btn--booking {
+    bottom: calc(1rem + var(--safe-area-bottom)) !important;
+    right: calc(1rem + var(--safe-area-right)) !important;
+    left: auto !important;
+    padding: 0.8rem 1.6rem !important;
+  }
+}
+
+/* ==========================================================================
+   7. タッチデバイス対応 (@media (hover: none) and (pointer: coarse))
+   ホバーエフェクト無効化 & タップ操作最適化
+   ========================================================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* マウスカーソル関連の完全無効化 */
+  .cursor,
+  .cursor-dot,
+  .cursor-ring,
+  #cursor {
+    display: none !important;
+  }
+
+  /* ホバーによる拡大・浮き上がりエフェクトの無効化（誤動作・チラつき防止） */
+  .staff__card:hover img,
+  .staff-card:hover img,
+  .gallery__item:hover img,
+  .gallery-item:hover img,
+  .insta-item:hover img,
+  .instagram__item:hover img,
+  .btn:hover,
+  .floating-btn:hover,
+  .floating-line:hover,
+  .floating-cta:hover {
+    transform: none !important;
+  }
+
+  /* スタッフカードのオーバーレイ情報（タッチ環境では下部に常時上品に表示） */
+  .staff__card-overlay,
+  .staff-card__overlay {
+    opacity: 1 !important;
+    transform: none !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 60%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 1.4rem 1.2rem !important;
+  }
+
+  /* ギャラリーアイテムのオーバーレイ情報（タッチ環境でも認識可能に） */
+  .gallery__item-overlay,
+  .gallery-item__overlay {
+    opacity: 1 !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 60%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 1.2rem !important;
+  }
+
+  /* Instagramオーバーレイ */
+  .instagram__overlay,
+  .insta-item__overlay {
+    opacity: 1 !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* タップ領域と操作性の向上 */
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  .gallery__filter,
+  .menu__tab,
+  .booking__staff-option,
+  .booking__menu-card,
+  .booking__calendar-day {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(45, 80, 22, 0.12);
+  }
+
+  /* ナビゲーションリンク等のタッチ領域拡張 */
+  .header__nav-link,
+  .mobile-menu__link {
+    padding: 0.6rem 0;
+  }
+}
+
+/* ==========================================================================
+   お客様の声（Testimonials）: 768px未満（スマートフォン）専用
+   1枚並び（100%幅）・テキスト全文折り返し・横スクロール防止・スナップ調整
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  .testimonials__slider {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+
+  .testimonials__track {
+    display: flex !important;
+    width: 100% !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: auto !important;
+    gap: 0 !important;
+    box-sizing: border-box !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .testimonials__track::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .testimonials__card,
+  .testimonial-card {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    scroll-snap-align: none !important;
+    padding: 2.5rem 2rem !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .testimonials__text,
+  .testimonial-card__text {
+    font-size: 1.4rem !important;
+    line-height: 1.7 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .testimonials__controls {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .testimonials__dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    margin-top: 1.2rem !important;
+  }
+}
+
+/* ==========================================================================
+   予約セクション（Booking）: 768px未満（スマートフォン）専用
+   ステップインジケーター・次へボタンとフローティングボタンの重なり回避
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  /* 1. ステップインジケーター: 右余白を確保し「4 確認」とフローティングボタンの重なりを回避 */
+  .booking__stepper {
+    margin-right: calc(96px + var(--safe-area-right)) !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .booking__stepper::before {
+    display: none !important;
+  }
+
+  .booking__step span {
+    font-size: 1.0rem !important;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* 2. 予約フォームボタン領域: 右余白を確保し「次へ」ボタンとフローティング予約ボタンの重なりを回避 */
+  .booking__nav {
+    margin-right: calc(90px + var(--safe-area-right)) !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+

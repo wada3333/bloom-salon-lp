@@ -1,0 +1,535 @@
+@charset "UTF-8";
+
+/**
+ * ==========================================================================
+ * BLOOM Hair Salon - Animations & Keyframes CSS
+ * 表参道の洗練された美意識と優雅さを表現するアニメーションライブラリ
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   Animation Design Tokens / Custom Properties
+   ========================================================================== */
+:root {
+  /* イージング関数（繊細で上品な動きを実現するベジェ曲線） */
+  --ease-bloom: cubic-bezier(0.16, 1, 0.3, 1);       /* 軽やかで滑らかな減速 */
+  --ease-soft: cubic-bezier(0.25, 1, 0.5, 1);        /* 優しい余韻のあるイージング */
+  --ease-in-out-bloom: cubic-bezier(0.65, 0, 0.35, 1);/* 洗練された加減速 */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);  /* わずかな弾み */
+
+  /* デュレーション（標準持続時間） */
+  --duration-fast: 0.3s;
+  --duration-normal: 0.6s;
+  --duration-medium: 0.8s;
+  --duration-slow: 1.2s;
+  --duration-ambient: 3s;
+}
+
+/* ==========================================================================
+   Keyframes Definitions (20 Animations)
+   ========================================================================== */
+
+/* 1. fadeIn: シンプルなフェードイン（不透明度0から1へ） */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 2. fadeInUp: 下から上へのフェードイン（30px上昇） */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. fadeInDown: 上から下へのフェードイン（30px下降） */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 4. fadeInLeft: 左から右へのフェードイン（30px右移動） */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 5. fadeInRight: 右から左へのフェードイン（30px左移動） */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 6. scaleIn: 縮小状態から通常サイズへの拡大フェードイン */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 7. slideUp: 画面外または要素下部(100%)からのスライドアップ */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 8. slideDown: 要素上部(-100%)からのスライドダウン */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 9. drawLine: SVG stroke-dashoffset (線画描画アニメーション用) */
+@keyframes drawLine {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 10. float: ふわりと浮遊するアンビエントアニメーション */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 11. pulse: 心拍のように優しく拡大縮小するパルス */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 12. shimmer: 背景グラデーション移動（スケルトンローディング等） */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 13. bounce: 軽やかな上下バウンス */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 14. rotate: 360度無限回転（ローディングスピナー等） */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 15. progressBar: プログレスバーの伸長（0%から100%） */
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* 16. ripple: ボタンクリック時のリップル（波紋）エフェクト */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* 17. textReveal: clip-pathで幕が開くようなテキスト出現アニメーション */
+@keyframes textReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* 18. heroParallax: ヒーロー背景画像の緩やかなスケールアップ(1→1.1) */
+@keyframes heroParallax {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* 19. scrollIndicator: スクロールインジケーターの上下バウンス誘導 */
+@keyframes scrollIndicator {
+  0% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(12px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+}
+
+/* 20. successCheck: 予約完了等のチェックマーク描画アニメーション */
+@keyframes successCheck {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Scroll Trigger & Interactive Utility Classes
+   ========================================================================== */
+
+/* フェードアップ（JSでの.active付与による制御） */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* フェードダウン */
+.fade-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-down.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* フェードレフト（左からスライドイン） */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* フェードライト（右からスライドイン） */
+.fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* スケールイン（拡大しながら表示） */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scale-in.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* スプリットテキスト（各文字のアニメーション用初期状態） */
+.split-text {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.split-text .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--char-index, 0) * 0.04s);
+  will-change: opacity, transform;
+}
+
+.split-text.active .char,
+.split-text .char.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* clip-pathを使ったテキスト出現アニメーション */
+.reveal-text {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path;
+}
+
+.reveal-text.active {
+  clip-path: inset(0 0 0 0);
+}
+
+/* パララックス画像のクリッピングコンテナ */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.parallax-container img,
+.parallax-container .parallax-image {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  will-change: transform;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Utility Classes for Standalone Animations
+   ========================================================================== */
+
+/* クラス付与のみでキーフレームアニメーションを発火させるユーティリティ */
+.animate-fade-in {
+  animation: fadeIn var(--duration-normal) var(--ease-bloom) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-medium) var(--ease-bloom) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown var(--duration-medium) var(--ease-bloom) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-normal) var(--ease-bloom) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--duration-normal) var(--ease-bloom) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--duration-normal) var(--ease-bloom) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+.animate-rotate {
+  animation: rotate 1s linear infinite;
+}
+
+.animate-hero-parallax {
+  animation: heroParallax 20s ease-in-out infinite alternate;
+}
+
+.animate-scroll-indicator {
+  animation: scrollIndicator 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Component-Specific Animation Helpers
+   ========================================================================== */
+
+/* ボタンのリプル（波紋）ラッパー */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple .ripple-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple 0.6s linear forwards;
+}
+
+/* ローディング・シマーエフェクト */
+.shimmer-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* プログレスバー */
+.progress-bar-inner {
+  width: 0%;
+  height: 100%;
+  animation: progressBar 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* SVGチェックマーク（予約完了時など） */
+.success-check-icon path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.success-check-icon.active path {
+  stroke-dashoffset: 0;
+}
+
+/* ==========================================================================
+   Animation Delay Utilities (時間差演出用)
+   ========================================================================== */
+.delay-100 { transition-delay: 0.1s; animation-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; animation-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; animation-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; animation-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; animation-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; animation-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; animation-delay: 0.7s; }
+.delay-800 { transition-delay: 0.8s; animation-delay: 0.8s; }
+.delay-900 { transition-delay: 0.9s; animation-delay: 0.9s; }
+.delay-1000 { transition-delay: 1.0s; animation-delay: 1.0s; }
+
+/* ==========================================================================
+   Accessibility: prefers-reduced-motion
+   動きに配慮が必要なユーザー向けに、アニメーションとトランジションを無効化
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .fade-up,
+  .fade-down,
+  .fade-left,
+  .fade-right,
+  .scale-in,
+  .split-text .char,
+  .reveal-text {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .animate-float,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-rotate,
+  .animate-hero-parallax,
+  .animate-scroll-indicator {
+    animation: none !important;
+  }
+}

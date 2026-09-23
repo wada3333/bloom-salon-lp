@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>BLOOM - あなたらしさが、咲く場所。</title>
+  <meta name="description" content="BLOOM（ブルーム）は東京・表参道のトレンドヘアサロン。個性を引き出すカット・カラー・パーマを、感性豊かなスタイリストがご提供します。">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Theme Color (Light / Dark) -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAFAF5">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F0F0F">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wada3333.github.io/bloom-salon-lp/">
+  <meta property="og:title" content="BLOOM - あなたらしさが、咲く場所。">
+  <meta property="og:description" content="BLOOM（ブルーム）は東京・表参道のトレンドヘアサロン。個性を引き出すカット・カラー・パーマを、感性豊かなスタイリストがご提供します。">
+  <meta property="og:image" content="https://wada3333.github.io/bloom-salon-lp/assets/images/hero-bg.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://wada3333.github.io/bloom-salon-lp/">
+  <meta name="twitter:title" content="BLOOM - あなたらしさが、咲く場所。">
+  <meta name="twitter:description" content="BLOOM（ブルーム）は東京・表参道のトレンドヘアサロン。個性を引き出すカット・カラー・パーマを、感性豊かなスタイリストがご提供します。">
+  <meta name="twitter:image" content="https://wada3333.github.io/bloom-salon-lp/assets/images/hero-bg.webp">
+
+  <!-- JSON-LD 構造化データ (HairSalon) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "BLOOM",
+    "image": "https://wada3333.github.io/bloom-salon-lp/assets/images/hero-bg.webp",
+    "url": "https://wada3333.github.io/bloom-salon-lp/",
+    "telephone": "03-1234-5678",
+    "priceRange": "¥6,600〜",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "神宮前4-12-10 表参道ヒルズ3F",
+      "addressLocality": "渋谷区",
+      "addressRegion": "東京都",
+      "postalCode": "150-0001",
+      "addressCountry": "JP"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday"],
+        "opens": "11:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "20:00"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ===========================
+       CUSTOM CURSOR
+  ============================ -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- ===========================
+       LOADING SCREEN
+  ============================ -->
+  <div class="loading" id="loading">
+    <div class="loading__inner">
+      <svg class="loading__logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central"
+              font-family="Cormorant Garamond, serif" font-size="42" font-weight="300"
+              fill="none" stroke="#2D5016" stroke-width="0.5"
+              class="loading__text-path">BLOOM</text>
+      </svg>
+      <div class="loading__bar">
+        <div class="loading__bar-fill"></div>
+      </div>
+      <p class="loading__tagline">あなたらしさが、咲く場所。</p>
+    </div>
+  </div>
+
+  <!-- ===========================
+       HEADER / NAVIGATION
+  ============================ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <span class="header__logo-text">BLOOM</span>
+        <span class="header__logo-leaf">🌿</span>
+      </a>
+
+      <nav class="header__nav" id="nav">
+        <ul class="header__nav-list">
+          <li><a href="#concept" class="header__nav-link" data-hover="Concept">Concept</a></li>
+          <li><a href="#staff" class="header__nav-link" data-hover="Staff">Staff</a></li>
+          <li><a href="#gallery" class="header__nav-link" data-hover="Gallery">Gallery</a></li>
+          <li><a href="#menu" class="header__nav-link" data-hover="Menu">Menu</a></li>
+          <li><a href="#booking" class="header__nav-link" data-hover="Booking">Booking</a></li>
+          <li><a href="#access" class="header__nav-link" data-hover="Access">Access</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="header__theme-toggle" id="themeToggle" aria-label="テーマ切替">
+          <svg class="header__theme-icon header__theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="header__theme-icon header__theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+        <a href="#booking" class="header__cta btn btn--primary">Reserve</a>
+        <button class="header__burger" id="burger" aria-label="メニュー" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu__inner">
+        <ul class="mobile-menu__list">
+          <li><a href="#concept" class="mobile-menu__link">Concept</a></li>
+          <li><a href="#staff" class="mobile-menu__link">Staff</a></li>
+          <li><a href="#gallery" class="mobile-menu__link">Gallery</a></li>
+          <li><a href="#menu" class="mobile-menu__link">Menu</a></li>
+          <li><a href="#booking" class="mobile-menu__link">Booking</a></li>
+          <li><a href="#access" class="mobile-menu__link">Access</a></li>
+        </ul>
+        <div class="mobile-menu__footer">
+          <a href="#booking" class="btn btn--primary btn--large">ご予約はこちら</a>
+          <div class="mobile-menu__social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LINE">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.79 2 10.36c0 3.15 2.3 5.9 5.72 7.25-.08.27-.5 1.74-.57 2.02-.1.38.14.38.3.27.12-.08 1.7-1.15 2.39-1.62.68.1 1.4.15 2.16.15 5.52 0 10-3.79 10-8.43S17.52 2 12 2z"/></svg>
+            </a>
+            <a href="#" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===========================
+       HERO SECTION
+  ============================ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__bg-overlay"></div>
+      <!-- Placeholder: 将来Nano Banana Proで生成した動画/画像に差し替え -->
+      <div class="hero__bg-image" style="background-image: url('assets/images/hero-bg.webp');"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__subtitle reveal-text">HAIR SALON IN OMOTESANDO</p>
+      <h1 class="hero__title">
+        <span class="hero__title-line reveal-text">あなたらしさが、</span>
+        <span class="hero__title-line reveal-text">咲く<em>場所。</em></span>
+      </h1>
+      <p class="hero__description reveal-text">
+        ひとりひとりの個性に寄り添い、<br>
+        あなただけのスタイルを咲かせます。
+      </p>
+      <div class="hero__cta reveal-text">
+        <a href="#booking" class="btn btn--primary btn--large magnetic">
+          <span>予約する</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span class="hero__scroll-text">Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CONCEPT SECTION
+  ============================ -->
+  <section class="concept section" id="concept">
+    <div class="container">
+      <div class="concept__grid">
+        <div class="concept__text">
+          <span class="section__label">Concept</span>
+          <h2 class="section__title split-text">
+            自然体の美しさを、<br>この場所から。
+          </h2>
+          <p class="concept__description fade-up">
+            BLOOMは、流行を追いかけるだけではなく、<br>
+            あなたの内面から溢れ出る個性を大切にする<br>
+            ヘアサロンです。
+          </p>
+          <p class="concept__description fade-up">
+            緑あふれる空間で、日常の喧騒を忘れ、<br>
+            自分だけの時間を過ごしてください。<br>
+            私たちが、あなたらしい"開花"をお手伝いします。
+          </p>
+        </div>
+        <div class="concept__images">
+          <div class="concept__image concept__image--main parallax-container fade-up">
+            <!-- Placeholder: 植物のあるナチュラルモダンな店内写真 -->
+            <img src="assets/images/interior-1.webp"
+                   alt="BLOOM 店内 - ナチュラルモダンな空間" width="1200" height="896" loading="lazy">
+          </div>
+          <div class="concept__image concept__image--sub parallax-container fade-up">
+            <!-- Placeholder: 店内ディテール写真 -->
+            <img src="assets/images/interior-2.webp"
+                   alt="BLOOM 店内 - グリーンとウッドのインテリア" width="1200" height="896" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept Keywords -->
+      <div class="concept__keywords">
+        <div class="concept__keyword fade-up">
+          <span class="concept__keyword-num">01</span>
+          <h3>Natural</h3>
+          <p>自然光とグリーンに包まれた<br>心地よい空間</p>
+        </div>
+        <div class="concept__keyword fade-up">
+          <span class="concept__keyword-num">02</span>
+          <h3>Personal</h3>
+          <p>あなただけのスタイルを<br>マンツーマンで提案</p>
+        </div>
+        <div class="concept__keyword fade-up">
+          <span class="concept__keyword-num">03</span>
+          <h3>Trendy</h3>
+          <p>最新トレンドと個性の<br>絶妙なバランス</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       STAFF SECTION
+  ============================ -->
+  <section class="staff section" id="staff">
+    <div class="container">
+      <span class="section__label">Staff</span>
+      <h2 class="section__title split-text">
+        個性豊かな<br>クリエイターたち。
+      </h2>
+      <p class="section__subtitle fade-up">
+        感性とテクニックを兼ね備えたスタイリストが、<br>
+        あなたの理想をカタチにします。
+      </p>
+
+      <!-- Staff Group Photo -->
+      <div class="staff__group-photo fade-up">
+        <!-- Placeholder: スタッフ全員の笑顔の集合写真 -->
+        <img src="assets/images/staff-group.webp"
+               alt="BLOOMスタッフ集合写真" width="1376" height="768" loading="lazy">
+        <div class="staff__group-overlay">
+          <p>BLOOM TEAM</p>
+        </div>
+      </div>
+
+      <!-- Individual Staff Cards -->
+      <div class="staff__grid">
+        <!-- Staff 1: Director -->
+        <div class="staff__card fade-up" data-cursor="view">
+          <div class="staff__card-image">
+            <img src="assets/images/staff-ren.webp"
+                   alt="佐藤 蓮 - ディレクター" width="600" height="800" loading="lazy">
+            <div class="staff__card-overlay">
+              <p class="staff__card-comment">"髪は最高のアクセサリー。一人ひとりの魅力を最大限に引き出します。"</p>
+              <div class="staff__card-social">
+                <a href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="staff__card-info">
+            <span class="staff__card-role">Director</span>
+            <h3 class="staff__card-name">佐藤 蓮<small>Ren Sato</small></h3>
+            <p class="staff__card-specialty">得意: ショートカット / ハイトーンカラー</p>
+          </div>
+        </div>
+
+        <!-- Staff 2: Top Stylist -->
+        <div class="staff__card fade-up" data-cursor="view">
+          <div class="staff__card-image">
+            <img src="assets/images/staff-misaki.webp"
+                   alt="田中 美咲 - トップスタイリスト" width="600" height="800" loading="lazy">
+            <div class="staff__card-overlay">
+              <p class="staff__card-comment">"トレンドと個性のバランスを大切にしています。お気軽にご相談ください！"</p>
+              <div class="staff__card-social">
+                <a href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="staff__card-info">
+            <span class="staff__card-role">Top Stylist</span>
+            <h3 class="staff__card-name">田中 美咲<small>Misaki Tanaka</small></h3>
+            <p class="staff__card-specialty">得意: 透明感カラー / レイヤーカット</p>
+          </div>
+        </div>
+
+        <!-- Staff 3: Stylist -->
+        <div class="staff__card fade-up" data-cursor="view">
+          <div class="staff__card-image">
+            <img src="assets/images/staff-shota.webp"
+                   alt="山本 翔太 - スタイリスト" width="600" height="800" loading="lazy">
+            <div class="staff__card-overlay">
+              <p class="staff__card-comment">"ライフスタイルに合わせた再現しやすいスタイルを提案します。"</p>
+              <div class="staff__card-social">
+                <a href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="staff__card-info">
+            <span class="staff__card-role">Stylist</span>
+            <h3 class="staff__card-name">山本 翔太<small>Shota Yamamoto</small></h3>
+            <p class="staff__card-specialty">得意: メンズカット / パーマスタイル</p>
+          </div>
+        </div>
+
+        <!-- Staff 4: Stylist -->
+        <div class="staff__card fade-up" data-cursor="view">
+          <div class="staff__card-image">
+            <img src="assets/images/staff-akari.webp"
+                   alt="鈴木 あかり - スタイリスト" width="600" height="800" loading="lazy">
+            <div class="staff__card-overlay">
+              <p class="staff__card-comment">"お客様の『なりたい』を叶えるために、とことん向き合います。"</p>
+              <div class="staff__card-social">
+                <a href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="staff__card-info">
+            <span class="staff__card-role">Stylist</span>
+            <h3 class="staff__card-name">鈴木 あかり<small>Akari Suzuki</small></h3>
+            <p class="staff__card-specialty">得意: ヘアアレンジ / インナーカラー</p>
+          </div>
+        </div>
+
+        <!-- Staff 5: Jr. Stylist -->
+        <div class="staff__card fade-up" data-cursor="view">
+          <div class="staff__card-image">
+            <img src="assets/images/staff-yui.webp"
+                   alt="中村 結衣 - ジュニアスタイリスト" width="600" height="800" loading="lazy">
+            <div class="staff__card-overlay">
+              <p class="staff__card-comment">"最新のトレンドを取り入れたスタイルが得意です！"</p>
+              <div class="staff__card-social">
+                <a href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="staff__card-info">
+            <span class="staff__card-role">Jr. Stylist</span>
+            <h3 class="staff__card-name">中村 結衣<small>Yui Nakamura</small></h3>
+            <p class="staff__card-specialty">得意: 韓国風スタイル / ブリーチカラー</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Styling Scene Photo -->
+      <div class="staff__scene fade-up">
+        <!-- Placeholder: スタッフが笑顔で散髪している風景 -->
+        <img src="assets/images/styling-scene.webp"
+               alt="笑顔でスタイリングするBLOOMのスタイリスト" width="1376" height="768" loading="lazy">
+        <p class="staff__scene-caption">ひとりひとりと向き合う、あたたかな時間。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       GALLERY SECTION
+  ============================ -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <span class="section__label">Gallery</span>
+      <h2 class="section__title split-text">Style Collection</h2>
+      <p class="section__subtitle fade-up">BLOOMが提案するスタイルをご覧ください。</p>
+
+      <!-- Filter Buttons -->
+      <div class="gallery__filters fade-up">
+        <button class="gallery__filter active" data-filter="all">All</button>
+        <button class="gallery__filter" data-filter="cut">Cut</button>
+        <button class="gallery__filter" data-filter="color">Color</button>
+        <button class="gallery__filter" data-filter="perm">Perm</button>
+        <button class="gallery__filter" data-filter="treatment">Treatment</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery__grid">
+        <div class="gallery__item" data-category="cut" data-cursor="view">
+          <img src="assets/images/gallery_style_1.webp" alt="ショートボブ" width="1024" height="1024" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Cut</span>
+            <h3>ショートボブ</h3>
+            <p>Stylist: 佐藤 蓮</p>
+          </div>
+        </div>
+        <div class="gallery__item" data-category="color" data-cursor="view">
+          <img src="assets/images/gallery_style_2.webp" alt="透明感ベージュカラー" width="848" height="1264" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Color</span>
+            <h3>透明感ベージュカラー</h3>
+            <p>Stylist: 田中 美咲</p>
+          </div>
+        </div>
+        <div class="gallery__item" data-category="cut" data-cursor="view">
+          <img src="assets/images/gallery_style_6.webp" alt="レイヤーロング" width="1024" height="1024" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Cut</span>
+            <h3>レイヤーロング</h3>
+            <p>Stylist: 田中 美咲</p>
+          </div>
+        </div>
+        <div class="gallery__item" data-category="perm" data-cursor="view">
+          <img src="assets/images/gallery_style_4.webp" alt="ゆるふわパーマ" width="1024" height="1024" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Perm</span>
+            <h3>ゆるふわパーマ</h3>
+            <p>Stylist: 山本 翔太</p>
+          </div>
+        </div>
+        <div class="gallery__item" data-category="color" data-cursor="view">
+          <img src="assets/images/gallery_style_5.webp" alt="ハイライトカラー" width="1024" height="1024" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Color</span>
+            <h3>ハイライトカラー</h3>
+            <p>Stylist: 鈴木 あかり</p>
+          </div>
+        </div>
+        <div class="gallery__item" data-category="treatment" data-cursor="view">
+          <img src="assets/images/gallery_style_3.webp" alt="髪質改善トリートメント" width="1024" height="1024" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Treatment</span>
+            <h3>髪質改善トリートメント</h3>
+            <p>Stylist: 佐藤 蓮</p>
+          </div>
+        </div>
+        <div class="gallery__item" data-category="cut color" data-cursor="view">
+          <img src="assets/images/gallery_style_7.webp" alt="ウルフカット×デザインカラー" width="1024" height="1024" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Cut + Color</span>
+            <h3>ウルフカット × デザインカラー</h3>
+            <p>Stylist: 中村 結衣</p>
+          </div>
+        </div>
+        <div class="gallery__item" data-category="perm" data-cursor="view">
+          <img src="assets/images/gallery_style_8.webp" alt="韓国風パーマ" width="1024" height="1024" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">Perm</span>
+            <h3>韓国風パーマ</h3>
+            <p>Stylist: 山本 翔太</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before/After Slider -->
+      <div class="gallery__before-after fade-up">
+        <h3 class="gallery__ba-title">Before → After</h3>
+        <div class="gallery__ba-slider" id="baSlider">
+          <div class="gallery__ba-image gallery__ba-image--before">
+            <img src="assets/images/ba_before.webp" alt="Before" width="1376" height="768" loading="lazy">
+            <span class="gallery__ba-label">Before</span>
+          </div>
+          <div class="gallery__ba-image gallery__ba-image--after">
+            <img src="assets/images/ba_after.webp" alt="After" width="1376" height="768" loading="lazy">
+            <span class="gallery__ba-label">After</span>
+          </div>
+          <div class="gallery__ba-handle" id="baHandle">
+            <div class="gallery__ba-handle-line"></div>
+            <div class="gallery__ba-handle-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 5l-5 7 5 7"/><path d="M16 5l5 7-5 7"/>
+              </svg>
+            </div>
+            <div class="gallery__ba-handle-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox__close" aria-label="閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="lightbox__content">
+        <img class="lightbox__image" src="" alt="">
+        <div class="lightbox__info">
+          <h3 class="lightbox__title"></h3>
+          <p class="lightbox__detail"></p>
+        </div>
+      </div>
+      <button class="lightbox__prev" aria-label="前へ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="lightbox__next" aria-label="次へ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===========================
+       MENU & PRICING SECTION
+  ============================ -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <span class="section__label">Menu & Price</span>
+      <h2 class="section__title split-text">メニュー・料金</h2>
+      <p class="section__subtitle fade-up">すべてのメニューにカウンセリング・ブローが含まれます。</p>
+
+      <!-- Menu Tabs -->
+      <div class="menu__tabs fade-up">
+        <button class="menu__tab active" data-tab="cut">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.1 10.3c-.4-.4-.4-1 0-1.4L14 1l3.5 3.5L9.6 12.4c-.4.4-1 .4-1.4 0l-2.1-2.1zM14 6l4 4"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 15l6-6M12 15l6 6"/></svg>
+          <span>Cut</span>
+        </button>
+        <button class="menu__tab" data-tab="color">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Color</span>
+        </button>
+        <button class="menu__tab" data-tab="perm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM12 2v20"/><path d="M2 12h20"/></svg>
+          <span>Perm</span>
+        </button>
+        <button class="menu__tab" data-tab="treatment">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Treatment</span>
+        </button>
+        <button class="menu__tab" data-tab="headspa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 017 7c0 3-2 5.5-4 7.5S12 20 12 22c0-2-1-3.5-3-5.5S5 12 5 9a7 7 0 017-7z"/></svg>
+          <span>Head Spa</span>
+        </button>
+      </div>
+
+      <!-- Menu Content -->
+      <div class="menu__content">
+        <!-- Cut Menu -->
+        <div class="menu__panel active" data-panel="cut">
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>カット</h3>
+              <p>シャンプー・ブロー込み</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">60min</span>
+              <span class="menu__item-price">¥6,600<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>カット + 前髪カット</h3>
+              <p>前髪のみのお直しも可能</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">70min</span>
+              <span class="menu__item-price">¥7,150<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>メンズカット</h3>
+              <p>シャンプー・スタイリング込み</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">50min</span>
+              <span class="menu__item-price">¥5,500<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>前髪カットのみ</h3>
+              <p>前髪のみのクイック施術</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">15min</span>
+              <span class="menu__item-price">¥1,100</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Menu -->
+        <div class="menu__panel" data-panel="color">
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>ワンカラー</h3>
+              <p>ファッションカラー全体染め</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">90min</span>
+              <span class="menu__item-price">¥8,800<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>ハイライト</h3>
+              <p>立体感と動きのあるデザイン</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">120min</span>
+              <span class="menu__item-price">¥11,000<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>ダブルカラー</h3>
+              <p>ブリーチ＋カラーで透明感UP</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">150min</span>
+              <span class="menu__item-price">¥16,500<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>インナーカラー</h3>
+              <p>さりげなく個性を演出</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">100min</span>
+              <span class="menu__item-price">¥9,900<small>〜</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perm Menu -->
+        <div class="menu__panel" data-panel="perm">
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>デジタルパーマ</h3>
+              <p>持ちの良いツヤ感カール</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">120min</span>
+              <span class="menu__item-price">¥13,200<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>コールドパーマ</h3>
+              <p>ナチュラルなゆるふわカール</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">100min</span>
+              <span class="menu__item-price">¥11,000<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>ポイントパーマ</h3>
+              <p>前髪や毛先など部分的なパーマ</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">80min</span>
+              <span class="menu__item-price">¥8,800<small>〜</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treatment Menu -->
+        <div class="menu__panel" data-panel="treatment">
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>プレミアムトリートメント</h3>
+              <p>髪質改善・ダメージ補修</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">60min</span>
+              <span class="menu__item-price">¥8,800<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>スタンダードトリートメント</h3>
+              <p>うるおい補給・ツヤ感UP</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">30min</span>
+              <span class="menu__item-price">¥4,400<small>〜</small></span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>酸熱トリートメント</h3>
+              <p>くせ毛・うねりを改善</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">90min</span>
+              <span class="menu__item-price">¥16,500<small>〜</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Head Spa Menu -->
+        <div class="menu__panel" data-panel="headspa">
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>プレミアムヘッドスパ</h3>
+              <p>極上のリラクゼーション体験</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">60min</span>
+              <span class="menu__item-price">¥8,800</span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>クイックヘッドスパ</h3>
+              <p>施術と一緒に手軽にリフレッシュ</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">20min</span>
+              <span class="menu__item-price">¥3,300</span>
+            </div>
+          </div>
+          <div class="menu__item fade-up">
+            <div class="menu__item-info">
+              <h3>頭皮ケアスパ</h3>
+              <p>頭皮環境を整えるスペシャルケア</p>
+            </div>
+            <div class="menu__item-meta">
+              <span class="menu__item-time">45min</span>
+              <span class="menu__item-price">¥6,600</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__note fade-up">
+        <p>※ 料金はすべて税込表示です。髪の長さや状態により料金が変わる場合がございます。</p>
+        <a href="#booking" class="btn btn--primary magnetic">メニューを選んで予約する →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       TESTIMONIALS SECTION
+  ============================ -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <span class="section__label">Voice</span>
+      <h2 class="section__title split-text">お客様の声</h2>
+
+      <div class="testimonials__slider" id="testimonialSlider">
+        <div class="testimonials__track">
+          <!-- Testimonial 1 -->
+          <div class="testimonials__card">
+            <div class="testimonials__stars">★★★★★</div>
+            <p class="testimonials__text">"初めて行った美容室で、こんなに満足したのは初めてです。カウンセリングが丁寧で、私の髪質やライフスタイルに合わせた提案をしてくれました。仕上がりも最高！"</p>
+            <div class="testimonials__author">
+              <span class="testimonials__initial">M.K</span>
+              <div>
+                <p class="testimonials__name">M.K 様</p>
+                <p class="testimonials__menu">カット + カラー</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonials__card">
+            <div class="testimonials__stars">★★★★★</div>
+            <p class="testimonials__text">"店内の雰囲気がとても素敵で、リラックスできました。植物がたくさんあって癒されます。翔太さんのカットは再現性が高くて、毎朝のスタイリングが楽になりました。"</p>
+            <div class="testimonials__author">
+              <span class="testimonials__initial">A.S</span>
+              <div>
+                <p class="testimonials__name">A.S 様</p>
+                <p class="testimonials__menu">カット + パーマ</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonials__card">
+            <div class="testimonials__stars">★★★★★</div>
+            <p class="testimonials__text">"あかりさんにインナーカラーをお願いしました。さりげないけど、チラッと見えるのがめちゃくちゃ可愛い！友達にもたくさん褒められました。リピ確定です♪"</p>
+            <div class="testimonials__author">
+              <span class="testimonials__initial">Y.T</span>
+              <div>
+                <p class="testimonials__name">Y.T 様</p>
+                <p class="testimonials__menu">インナーカラー</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonials__card">
+            <div class="testimonials__stars">★★★★☆</div>
+            <p class="testimonials__text">"ヘッドスパが最高に気持ちよかったです。施術中に寝てしまいました（笑）。頭皮がスッキリして、髪にもハリが出た気がします。定期的に通いたいです。"</p>
+            <div class="testimonials__author">
+              <span class="testimonials__initial">R.N</span>
+              <div>
+                <p class="testimonials__name">R.N 様</p>
+                <p class="testimonials__menu">ヘッドスパ + カット</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 5 -->
+          <div class="testimonials__card">
+            <div class="testimonials__stars">★★★★★</div>
+            <p class="testimonials__text">"蓮さんのショートカット、本当に上手です！今まで自分にショートは似合わないと思っていたけど、骨格に合わせたカットで大満足。自分に自信が持てるようになりました。"</p>
+            <div class="testimonials__author">
+              <span class="testimonials__initial">K.M</span>
+              <div>
+                <p class="testimonials__name">K.M 様</p>
+                <p class="testimonials__menu">カット</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials__controls">
+          <button class="testimonials__btn testimonials__btn--prev" aria-label="前へ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="testimonials__dots" id="testimonialDots"></div>
+          <button class="testimonials__btn testimonials__btn--next" aria-label="次へ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       BOOKING SECTION
+  ============================ -->
+  <section class="booking section" id="booking">
+    <div class="container">
+      <span class="section__label">Booking</span>
+      <h2 class="section__title split-text">ご予約</h2>
+      <p class="section__subtitle fade-up">カレンダーから日付を選んで、簡単3ステップでご予約いただけます。</p>
+
+      <!-- Booking Stepper -->
+      <div class="booking__stepper fade-up">
+        <div class="booking__step active" data-step="1">
+          <div class="booking__step-circle">1</div>
+          <span>日時選択</span>
+        </div>
+        <div class="booking__step-line"></div>
+        <div class="booking__step" data-step="2">
+          <div class="booking__step-circle">2</div>
+          <span>スタッフ・メニュー</span>
+        </div>
+        <div class="booking__step-line"></div>
+        <div class="booking__step" data-step="3">
+          <div class="booking__step-circle">3</div>
+          <span>お客様情報</span>
+        </div>
+        <div class="booking__step-line"></div>
+        <div class="booking__step" data-step="4">
+          <div class="booking__step-circle">4</div>
+          <span>確認</span>
+        </div>
+      </div>
+
+      <!-- Booking Form Container -->
+      <div class="booking__form-container fade-up">
+
+        <!-- Step 1: Date & Time Selection -->
+        <div class="booking__panel active" data-panel="1">
+          <div class="booking__date-time">
+            <!-- Calendar -->
+            <div class="booking__calendar">
+              <div class="booking__calendar-header">
+                <button class="booking__calendar-nav" id="calPrev" aria-label="前月">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <h3 class="booking__calendar-title" id="calTitle"></h3>
+                <button class="booking__calendar-nav" id="calNext" aria-label="翌月">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+              </div>
+              <div class="booking__calendar-weekdays">
+                <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+              </div>
+              <div class="booking__calendar-grid" id="calGrid"></div>
+              <p class="booking__calendar-note">※ 火曜定休 / ◎ 空きあり / △ 残りわずか</p>
+            </div>
+            <!-- Time Slots -->
+            <div class="booking__time-slots">
+              <h3 class="booking__time-title">時間を選択 <span id="selectedDate"></span></h3>
+              <div class="booking__time-grid" id="timeGrid">
+                <p class="booking__time-placeholder">← カレンダーから日付を選択してください</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Staff & Menu Selection -->
+        <div class="booking__panel" data-panel="2">
+          <div class="booking__staff-menu">
+            <!-- Staff Selection -->
+            <div class="booking__staff-select">
+              <h3>スタッフを選択</h3>
+              <div class="booking__staff-grid">
+                <div class="booking__staff-option" data-staff="any">
+                  <div class="booking__staff-avatar">
+                    <span>🎲</span>
+                  </div>
+                  <p>おまかせ</p>
+                </div>
+                <div class="booking__staff-option" data-staff="sato">
+                  <div class="booking__staff-avatar">
+                    <img src="assets/images/staff-ren.webp" alt="佐藤 蓮" width="600" height="800" loading="lazy">
+                  </div>
+                  <p>佐藤 蓮</p>
+                  <span class="booking__staff-role">Director</span>
+                </div>
+                <div class="booking__staff-option" data-staff="tanaka">
+                  <div class="booking__staff-avatar">
+                    <img src="assets/images/staff-misaki.webp" alt="田中 美咲" width="600" height="800" loading="lazy">
+                  </div>
+                  <p>田中 美咲</p>
+                  <span class="booking__staff-role">Top Stylist</span>
+                </div>
+                <div class="booking__staff-option" data-staff="yamamoto">
+                  <div class="booking__staff-avatar">
+                    <img src="assets/images/staff-shota.webp" alt="山本 翔太" width="600" height="800" loading="lazy">
+                  </div>
+                  <p>山本 翔太</p>
+                  <span class="booking__staff-role">Stylist</span>
+                </div>
+                <div class="booking__staff-option" data-staff="suzuki">
+                  <div class="booking__staff-avatar">
+                    <img src="assets/images/staff-akari.webp" alt="鈴木 あかり" width="600" height="800" loading="lazy">
+                  </div>
+                  <p>鈴木 あかり</p>
+                  <span class="booking__staff-role">Stylist</span>
+                </div>
+                <div class="booking__staff-option" data-staff="nakamura">
+                  <div class="booking__staff-avatar">
+                    <img src="assets/images/staff-yui.webp" alt="中村 結衣" width="600" height="800" loading="lazy">
+                  </div>
+                  <p>中村 結衣</p>
+                  <span class="booking__staff-role">Jr. Stylist</span>
+                </div>
+              </div>
+            </div>
+            <!-- Menu Selection -->
+            <div class="booking__menu-select">
+              <h3>メニューを選択 <small>（複数選択可）</small></h3>
+              <div class="booking__menu-grid">
+                <label class="booking__menu-option" for="menu-cut">
+                  <input type="checkbox" id="menu-cut" name="menu" value="cut" data-price="6600" data-time="60">
+                  <div class="booking__menu-card">
+                    <span class="booking__menu-name">カット</span>
+                    <span class="booking__menu-price">¥6,600〜</span>
+                    <span class="booking__menu-time">60min</span>
+                  </div>
+                </label>
+                <label class="booking__menu-option" for="menu-color">
+                  <input type="checkbox" id="menu-color" name="menu" value="color" data-price="8800" data-time="90">
+                  <div class="booking__menu-card">
+                    <span class="booking__menu-name">ワンカラー</span>
+                    <span class="booking__menu-price">¥8,800〜</span>
+                    <span class="booking__menu-time">90min</span>
+                  </div>
+                </label>
+                <label class="booking__menu-option" for="menu-highlight">
+                  <input type="checkbox" id="menu-highlight" name="menu" value="highlight" data-price="11000" data-time="120">
+                  <div class="booking__menu-card">
+                    <span class="booking__menu-name">ハイライト</span>
+                    <span class="booking__menu-price">¥11,000〜</span>
+                    <span class="booking__menu-time">120min</span>
+                  </div>
+                </label>
+                <label class="booking__menu-option" for="menu-perm">
+                  <input type="checkbox" id="menu-perm" name="menu" value="perm" data-price="13200" data-time="120">
+                  <div class="booking__menu-card">
+                    <span class="booking__menu-name">デジタルパーマ</span>
+                    <span class="booking__menu-price">¥13,200〜</span>
+                    <span class="booking__menu-time">120min</span>
+                  </div>
+                </label>
+                <label class="booking__menu-option" for="menu-treatment">
+                  <input type="checkbox" id="menu-treatment" name="menu" value="treatment" data-price="8800" data-time="60">
+                  <div class="booking__menu-card">
+                    <span class="booking__menu-name">プレミアムトリートメント</span>
+                    <span class="booking__menu-price">¥8,800〜</span>
+                    <span class="booking__menu-time">60min</span>
+                  </div>
+                </label>
+                <label class="booking__menu-option" for="menu-headspa">
+                  <input type="checkbox" id="menu-headspa" name="menu" value="headspa" data-price="8800" data-time="60">
+                  <div class="booking__menu-card">
+                    <span class="booking__menu-name">プレミアムヘッドスパ</span>
+                    <span class="booking__menu-price">¥8,800</span>
+                    <span class="booking__menu-time">60min</span>
+                  </div>
+                </label>
+              </div>
+              <div class="booking__summary">
+                <div class="booking__summary-row">
+                  <span>合計金額（税込）</span>
+                  <span class="booking__summary-total" id="bookingTotal">¥0</span>
+                </div>
+                <div class="booking__summary-row">
+                  <span>所要時間（目安）</span>
+                  <span class="booking__summary-time" id="bookingTime">0min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Customer Info -->
+        <div class="booking__panel" data-panel="3">
+          <div class="booking__customer">
+            <h3>お客様情報</h3>
+            <form class="booking__form" id="bookingForm">
+              <div class="booking__form-group">
+                <label for="customerName">お名前 <span class="required">*</span></label>
+                <input type="text" id="customerName" name="name" placeholder="山田 花子" required>
+              </div>
+              <div class="booking__form-row">
+                <div class="booking__form-group">
+                  <label for="customerPhone">電話番号 <span class="required">*</span></label>
+                  <input type="tel" id="customerPhone" name="phone" placeholder="090-1234-5678" required>
+                </div>
+                <div class="booking__form-group">
+                  <label for="customerEmail">メールアドレス</label>
+                  <input type="email" id="customerEmail" name="email" placeholder="example@email.com">
+                </div>
+              </div>
+              <div class="booking__form-group">
+                <label>ご来店歴</label>
+                <div class="booking__radio-group">
+                  <label class="booking__radio" for="visit-first">
+                    <input type="radio" id="visit-first" name="visit" value="first" checked>
+                    <span>初めて</span>
+                  </label>
+                  <label class="booking__radio" for="visit-repeat">
+                    <input type="radio" id="visit-repeat" name="visit" value="repeat">
+                    <span>リピーター</span>
+                  </label>
+                </div>
+              </div>
+              <div class="booking__form-group">
+                <label for="customerNote">ご要望・備考</label>
+                <textarea id="customerNote" name="note" rows="4" placeholder="髪のお悩みやご要望があればご記入ください"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Step 4: Confirmation -->
+        <div class="booking__panel" data-panel="4">
+          <div class="booking__confirm">
+            <h3>ご予約内容の確認</h3>
+            <div class="booking__confirm-card">
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">日時</span>
+                <span class="booking__confirm-value" id="confirmDate">-</span>
+              </div>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">スタッフ</span>
+                <span class="booking__confirm-value" id="confirmStaff">-</span>
+              </div>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">メニュー</span>
+                <span class="booking__confirm-value" id="confirmMenu">-</span>
+              </div>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">合計金額</span>
+                <span class="booking__confirm-value booking__confirm-value--price" id="confirmPrice">-</span>
+              </div>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">所要時間</span>
+                <span class="booking__confirm-value" id="confirmTime">-</span>
+              </div>
+              <hr>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">お名前</span>
+                <span class="booking__confirm-value" id="confirmName">-</span>
+              </div>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">電話番号</span>
+                <span class="booking__confirm-value" id="confirmPhone">-</span>
+              </div>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">メール</span>
+                <span class="booking__confirm-value" id="confirmEmail">-</span>
+              </div>
+              <div class="booking__confirm-row">
+                <span class="booking__confirm-label">備考</span>
+                <span class="booking__confirm-value" id="confirmNote">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="booking__nav">
+          <button class="btn btn--outline booking__nav-prev" id="bookingPrev" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>戻る</span>
+          </button>
+          <button class="btn btn--primary booking__nav-next magnetic" id="bookingNext">
+            <span>次へ</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn btn--primary booking__nav-submit magnetic" id="bookingSubmit" style="display:none;">
+            <span>予約を確定する</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Booking Success Modal -->
+      <div class="booking__success" id="bookingSuccess">
+        <div class="booking__success-inner">
+          <div class="booking__success-icon">
+            <svg viewBox="0 0 80 80" fill="none" stroke="#2D5016" stroke-width="3">
+              <circle cx="40" cy="40" r="36" class="booking__success-circle"/>
+              <path d="M24 40l10 10 22-22" class="booking__success-check"/>
+            </svg>
+          </div>
+          <h3>ご予約ありがとうございます！</h3>
+          <p>ご予約内容の確認メールをお送りしました。<br>ご来店を心よりお待ちしております。</p>
+          <p class="booking__success-demo" style="margin-top: 1.2rem; font-size: 1.2rem; color: var(--color-text-light);">※これはデモサイトのため、実際の予約は送信されません</p>
+          <button class="btn btn--primary" onclick="document.getElementById('bookingSuccess').classList.remove('active')">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ACCESS / SALON INFO
+  ============================ -->
+  <section class="access section" id="access">
+    <div class="container">
+      <span class="section__label">Access</span>
+      <h2 class="section__title split-text">サロン情報</h2>
+
+      <div class="access__grid">
+        <div class="access__info fade-up">
+          <div class="access__detail">
+            <h3>BLOOM</h3>
+            <dl class="access__list">
+              <div>
+                <dt>住所</dt>
+                <dd>〒150-0001<br>東京都渋谷区神宮前4-12-8<br>表参道ヒルズ 3F</dd>
+              </div>
+              <div>
+                <dt>TEL</dt>
+                <dd><a href="tel:03-1234-5678">03-1234-5678</a></dd>
+              </div>
+              <div>
+                <dt>営業時間</dt>
+                <dd>平日 11:00 - 21:00<br>土日祝 10:00 - 20:00</dd>
+              </div>
+              <div>
+                <dt>定休日</dt>
+                <dd>毎週火曜日</dd>
+              </div>
+              <div>
+                <dt>アクセス</dt>
+                <dd>表参道駅 A2出口より徒歩3分<br>明治神宮前駅 5番出口より徒歩5分</dd>
+              </div>
+            </dl>
+          </div>
+          <!-- Interior photos -->
+          <div class="access__photos">
+            <div class="access__photo">
+              <img src="assets/images/interior-1.webp"
+                     alt="BLOOM店内 - セットエリア" width="1200" height="896" loading="lazy">
+            </div>
+            <div class="access__photo">
+              <img src="assets/images/interior-2.webp"
+                     alt="BLOOM店内 - シャンプーエリア" width="1200" height="896" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="access__map fade-up">
+          <!-- Google Maps Embed (placeholder - 表参道エリア) -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2!2d139.7075!3d35.6654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sja!2sjp!4v0"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            title="BLOOMの場所">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       INSTAGRAM SECTION
+  ============================ -->
+  <section class="instagram section" id="instagram">
+    <div class="container">
+      <span class="section__label">Instagram</span>
+      <h2 class="section__title split-text">@bloom_omotesando</h2>
+      <p class="section__subtitle fade-up">最新のスタイルやサロンの日常をお届け</p>
+
+      <div class="instagram__grid fade-up">
+        <a href="#" class="instagram__item" data-cursor="view">
+          <img src="assets/images/style-1.webp" alt="Instagram post" width="896" height="1200" loading="lazy">
+          <div class="instagram__overlay">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>124</span>
+          </div>
+        </a>
+        <a href="#" class="instagram__item" data-cursor="view">
+          <img src="assets/images/style-2.webp" alt="Instagram post" width="896" height="1200" loading="lazy">
+          <div class="instagram__overlay">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>89</span>
+          </div>
+        </a>
+        <a href="#" class="instagram__item" data-cursor="view">
+          <img src="assets/images/staff-ren.webp" alt="Instagram post" width="600" height="800" loading="lazy">
+          <div class="instagram__overlay">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>256</span>
+          </div>
+        </a>
+        <a href="#" class="instagram__item" data-cursor="view">
+          <img src="assets/images/staff-shota.webp" alt="Instagram post" width="600" height="800" loading="lazy">
+          <div class="instagram__overlay">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>178</span>
+          </div>
+        </a>
+        <a href="#" class="instagram__item" data-cursor="view">
+          <img src="assets/images/interior-1.webp" alt="Instagram post" width="1200" height="896" loading="lazy">
+          <div class="instagram__overlay">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>201</span>
+          </div>
+        </a>
+        <a href="#" class="instagram__item" data-cursor="view">
+          <img src="assets/images/interior-2.webp" alt="Instagram post" width="1200" height="896" loading="lazy">
+          <div class="instagram__overlay">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>145</span>
+          </div>
+        </a>
+      </div>
+
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram__follow btn btn--outline magnetic fade-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        <span>Follow on Instagram</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  ============================ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">BLOOM</a>
+          <p class="footer__tagline">あなたらしさが、咲く場所。</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Menu</h4>
+            <ul>
+              <li><a href="#concept">Concept</a></li>
+              <li><a href="#staff">Staff</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#menu">Menu & Price</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Info</h4>
+            <ul>
+              <li><a href="#booking">Booking</a></li>
+              <li><a href="#access">Access</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>SNS</h4>
+            <ul>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LINE</a></li>
+              <li><a href="#">X (Twitter)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__disclaimer">※本サイトは架空のヘアサロンを題材にしたデモサイトです</p>
+        <p>&copy; 2025 BLOOM Hair Salon. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       FLOATING ELEMENTS
+  ============================ -->
+  <!-- Floating Reserve Button -->
+  <a href="#booking" class="floating-cta" id="floatingCta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <span>予約</span>
+  </a>
+
+  <!-- LINE Button (mobile) -->
+  <a href="#" class="floating-line" id="floatingLine">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.79 2 10.36c0 3.15 2.3 5.9 5.72 7.25-.08.27-.5 1.74-.57 2.02-.1.38.14.38.3.27.12-.08 1.7-1.15 2.39-1.62.68.1 1.4.15 2.16.15 5.52 0 10-3.79 10-8.43S17.52 2 12 2z"/></svg>
+  </a>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="トップへ戻る">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ===========================
+       SCRIPTS
+  ============================ -->
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <!-- App Scripts -->
+  <script src="js/cursor.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

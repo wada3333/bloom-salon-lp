@@ -1,0 +1,35 @@
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Python
+*.py
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary / Backup / Logs
+scratch/
+backup/
+screenshots/
+*.log
+*.tmp
+*.bak
+
+# Work scripts
+*.js.map
+fix_*.py
+recover*.py
+replace_*.py
+crop_*.py
+check_*.py
+restore*.js
+screenshot*.js
+test_*.js
+
