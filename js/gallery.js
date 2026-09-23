@@ -307,55 +307,78 @@
     var autoPlayInterval = null;
     var autoPlayDelay = 5000; // 5秒間隔
 
-    // ドットインジケーターを生成
-    if (dotsContainer) {
-      for (var i = 0; i < totalSlides; i++) {
+    // 表示中のカード数を取得（768px未満: 1枚, 768px〜1023px: 2枚, 1024px以上: 3枚）
+    function getVisibleCount() {
+      if (window.innerWidth < 768) return 1;
+      if (window.innerWidth < 1024) return 2;
+      return 3;
+    }
+
+    // ドットインジケーターを生成（スライド可能なステップ数に合わせて動的生成）
+    function updateDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      var maxIndex = totalSlides - getVisibleCount();
+      var numDots = maxIndex + 1;
+      for (var i = 0; i < numDots; i++) {
         var dot = document.createElement('button');
         dot.classList.add('testimonials__dot');
-        if (i === 0) dot.classList.add('active');
+        if (i === currentSlide) dot.classList.add('active');
         dot.setAttribute('aria-label', 'スライド ' + (i + 1));
         dot.setAttribute('data-index', i);
         dot.addEventListener('click', function () {
-          goToSlide(parseInt(this.getAttribute('data-index')));
+          goToSlide(parseInt(this.getAttribute('data-index'), 10));
+          startAutoPlay();
         });
         dotsContainer.appendChild(dot);
       }
     }
 
-    // スライドの表示幅を計算
-    function getSlideWidth() {
+    // ドットのアクティブ状態を更新
+    function updateDotActive() {
+      if (!dotsContainer) return;
+      var dots = dotsContainer.querySelectorAll('.testimonials__dot');
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    // スライド1回分の移動量（カード幅＋gap）を計算
+    function getSlideStep() {
       if (!cards[0]) return 0;
-      var style = window.getComputedStyle(cards[0]);
-      var width = cards[0].offsetWidth;
-      var marginRight = parseInt(style.marginRight) || 0;
-      var marginLeft = parseInt(style.marginLeft) || 0;
-      return width + marginRight + marginLeft;
+      var cardWidth = cards[0].offsetWidth;
+      var trackStyle = window.getComputedStyle(track);
+      var gap = parseFloat(trackStyle.gap) || parseFloat(trackStyle.columnGap) || 0;
+      return cardWidth + gap;
     }
 
     // スライド切替
     function goToSlide(index) {
-      // 最大スライド数を超えないように
       var maxIndex = totalSlides - getVisibleCount();
       currentSlide = Math.max(0, Math.min(index, maxIndex));
 
-      var slideWidth = getSlideWidth();
-      track.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-      track.style.transform = 'translateX(' + (-currentSlide * slideWidth) + 'px)';
-
-      // ドットの更新
-      if (dotsContainer) {
-        var dots = dotsContainer.querySelectorAll('.testimonials__dot');
-        dots.forEach(function (d, i) {
-          d.classList.toggle('active', i === currentSlide);
-        });
+      var offset;
+      if (getVisibleCount() === 1) {
+        // スマホ（1枚表示）: カード幅ベース
+        var slideStep = getSlideStep();
+        offset = currentSlide * slideStep;
+      } else {
+        // PC・タブレット（複数枚表示）: カード幅＋gap
+        var slideStep = getSlideStep();
+        offset = currentSlide * slideStep;
+        // 最後のスライド位置では、右端の余白を完全に防ぐため限界幅にスナップ
+        if (currentSlide === maxIndex) {
+          var maxOffset = track.scrollWidth - slider.clientWidth;
+          if (maxOffset > 0) {
+            offset = maxOffset;
+          }
+        }
       }
-    }
 
-    // 表示中のカード数を取得
-    function getVisibleCount() {
-      if (window.innerWidth <= 768) return 1;
-      if (window.innerWidth <= 1024) return 2;
-      return 3;
+      track.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+      track.style.transform = 'translateX(' + (-offset) + 'px)';
+
+      updateDotActive();
     }
 
     // 次のスライド
@@ -395,14 +418,14 @@
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
         prevSlide();
-        startAutoPlay(); // リセット
+        startAutoPlay();
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', function () {
         nextSlide();
-        startAutoPlay(); // リセット
+        startAutoPlay();
       });
     }
 
@@ -433,12 +456,19 @@
     slider.addEventListener('mouseenter', stopAutoPlay);
     slider.addEventListener('mouseleave', startAutoPlay);
 
-    // リサイズ時にスライド位置を再計算
+    // リサイズ時にドットとスライド位置を再計算
     window.addEventListener('resize', function () {
+      var maxIndex = totalSlides - getVisibleCount();
+      if (currentSlide > maxIndex) {
+        currentSlide = maxIndex;
+      }
+      updateDots();
       goToSlide(currentSlide);
     });
 
-    // 自動再生開始
+    // 初期化実行
+    updateDots();
+    goToSlide(0);
     startAutoPlay();
   }
 

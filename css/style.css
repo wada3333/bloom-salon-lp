@@ -965,20 +965,15 @@ button {
 .testimonials__track {
   display: flex;
   align-items: stretch;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
   gap: 2rem;
   padding-bottom: 2rem;
+  transition: transform 0.5s ease;
 }
-.testimonials__track::-webkit-scrollbar { display: none; }
 .testimonials__card {
   flex: 0 0 calc((100% - 4rem) / 3);
   width: calc((100% - 4rem) / 3);
   min-width: calc((100% - 4rem) / 3);
   max-width: calc((100% - 4rem) / 3);
-  scroll-snap-align: center;
   background: var(--color-surface);
   padding: 4rem;
   border-radius: 4px;

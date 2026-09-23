@@ -243,6 +243,28 @@
     updateStepView();
   }
 
+  // ステップ切り替え時のスクロール処理
+  function scrollToStepper() {
+    const stepper = document.querySelector('.booking__stepper');
+    if (!stepper) return;
+
+    const header = document.getElementById('header') || document.querySelector('.header');
+    const headerHeight = header ? header.getBoundingClientRect().height : 70;
+    const extraPadding = 16;
+    const offset = headerHeight + extraPadding;
+
+    const lenis = window.bloomLenis || window.lenis;
+    if (lenis && typeof lenis.scrollTo === 'function') {
+      lenis.scrollTo(stepper, { offset: -offset });
+    } else {
+      const targetPosition = stepper.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({
+        top: Math.max(0, targetPosition),
+        behavior: 'smooth'
+      });
+    }
+  }
+
   function goToStep(step) {
     if (step < 1 || step > 4) return;
     
@@ -252,6 +274,7 @@
     
     state.currentStep = step;
     updateStepView();
+    setTimeout(scrollToStepper, 20);
   }
 
   function updateStepView() {
